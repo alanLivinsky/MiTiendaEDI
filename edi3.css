@@ -1,0 +1,161 @@
+*{
+   margin: auto;
+   padding: 0;
+    --color_gradiente:linear-gradient(-45deg, #ca755a, #6be3e8, #68acc4, #252ec8); 
+    /*background: linear-gradient(-45deg, #ca755a, #6be3e8,#aa8073ad, #252ec8);*/
+}
+
+body {
+    background: var(--color_gradiente);
+    background-size: 400% 400%;
+    animation: gradient 10s cubic-bezier(.86,0,.07,1) infinite;
+}
+    
+    /*ESTABLECE LA TRAYECTORIA DE LA ANIMACION TRABAJANDO EN CONJUNTO CON EL DE PANTALLA A UN TAMAÑO MAYOR
+        QUE 100% DE FORMA TAL QUE NO SE VEA TODO EL GRADIENTE EN PANTALLA*/
+       
+    /* display: flex;
+        justify-content:center;
+        align-items:center;
+
+    grid -- table
+    */
+
+.caja_formulario{
+   /* width: 450px;*/
+    width: clamp(20em,90%,28em); /*DISEÑO RESPONSIVO)*/
+    height: 35em;
+    position:relative;
+    margin: 9% auto;
+    background: azure;
+    overflow: hidden; /*Oculta los formularios cuando salen fuera del contenedor*/
+    border-radius: 4em;
+    box-shadow: 0 0 5px 5px lightblue;
+}
+
+.div_boton{
+    width:15em;
+    margin: 35px auto;
+    position:relative;
+    box-shadow: 0 0 20px 2px lightblue;
+    border-radius: 3em;
+    top: 2em;
+}
+
+.botonIR{
+    padding: 1em 2.5em;
+    cursor: pointer;
+    background: transparent;
+    border:0;
+    outline: none;
+    position: relative;
+}
+
+/*alt+35=#*/
+#btn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 7em;
+    height: 100%;
+    
+    background: var(--color_gradiente);
+  
+    background-size: 400% 400%;
+    animation: gradient 10s cubic-bezier(.86,0,.07,1) infinite;
+    border-radius: 3em;
+}
+
+.formulario{
+    top: 10em;
+    position: absolute;
+    width: clamp(10em,78%,40em);
+    transition:.5s;
+}
+
+.campo_texto{
+    width: 100%;
+    padding: 1.5em 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom:0.1em solid black ;
+    outline: none;
+    background: transparent;
+}
+
+.boton_ingresar{
+    width: clamp(1em,90%,28em);
+    padding: 1em 1em;
+    cursor: pointer;
+    border-radius: 3em;
+    margin-top: 10%;
+    
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    
+    /*MODIFICAR SE COMPARTE ENTRE LOS BOTONES*/
+    
+    box-shadow: 0 0 2em 0.2em lightblue;
+    background: linear-gradient(-45deg, #ee7752, #84eef2, #30829f, #0b18e8);
+    background-size: 400% 400%;
+    animation: gradient 10s cubic-bezier(.86,0,.07,1) infinite;
+}
+
+input[type="checkbox"]{
+    margin: 0.7em 0em 1em 0em;
+}
+
+span{
+    margin: 0.9em;
+    color:#777;
+    font-size: 12px;
+    position: absolute;
+}
+
+#ing{
+    left:50px;
+}
+
+#reg{
+    left:450px;
+}
+
+ @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;    
+            }
+        }
+
+/*DISEÑO RESPONSIVO*/
+@media screen and (max-width: 500px) {
+
+  .caja_formulario {
+      top: 10%;
+  }
+}
+
+
+ /* make it responsive */ /* make the layout  a single column and add some margin to the wrapper */
+/*
+@media screen and (max-width: 400px) {
+
+  .caja_formulario {
+        width: 300px;
+        height: 480px;
+  }
+   .formulario{
+        width: 210px;
+    }
+} */
+
+
+
