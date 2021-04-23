@@ -3,63 +3,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="HandheldFriendly" content="true">
-    <!--
-    This will set the view on all screens at a 1×1 aspect ratio and remove the default 
-    functionality from iPhones and other mobile devices which 
-    render websites at full-view and allow users to zoom into the layout by pinching.
-    -->
-    <link rel="stylesheet" href="edi3.css">
-    <title>Document</title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!--MI LIBRERIA JAVASCRIPT-->
+        <script defer src="TareaJS1.js"></script>
+        <!--MI hOJA DE ESTILO-->
+        <link rel="stylesheet" href="edi3.css">
+
+        <title>lOG IN</title>
+
 </head>
 
 <body>
     <div class="container fondo">
         <div class="container caja_formulario">
             <div class="div_boton">
-                <div id="btn"></div>
-                    <button type="button" class="botonIR" onclick="ingreso()">Ingreso</button>
-                    <button type="button" class="botonIR" onclick="registro()">Registro</button>
+                <div id="switchIngresoRegistro"></div>
+                    <button type="button" class="botonIR" id="ingreso">Ingreso</button>
+                    <button type="button" class="botonIR" id="registro">Registro</button>
             </div>
 
-            <!---PONER IDs-->
-            <form id="ing" class="formulario" action="">
-                <input type="text" class="campo_texto" placeholder="Usuario">
-                <input type="password" class="campo_texto" placeholder="Contraseña">
-                <input type="checkbox" class="checkbox"><span>Recordar contraseña</span>
-                <button type="submit" class="boton_ingresar">Ingresar</button>
+            <form id="formIng" class="formulario" method="post" action="" style="left: 50px;">
+                <input type="text" class="campo_texto" id="usuarioIN" placeholder="Usuario" autofocus="autofocus" value="">
+                <input type="password" class="campo_texto" id="contraseñaIN" placeholder="Contraseña" value="">
+                <input type="checkbox" class="checkbox" id="recordarContraseña"><span>Recordar contraseña</span>
+                <button type="submit" class="boton_ingresar" id="ingresar">Ingresar</button>
+                
+                <button type="button" class="boton_ingresar" id="cargarIngresar" style="display: none;">
+                    <div class="spinner-border" id="spin"></div>
+                </button>
             </form>
 
-            <form id="reg" class="formulario" action="">
-                <input type="text" class="campo_texto" placeholder="Usuario">
-                <input type="email" class="campo_texto" placeholder="Email">
-                <input type="text" class="campo_texto" placeholder="Ingrese Contraseña">
-                <input type="checkbox" class="checkbox"><span>Acepto Terminos y Condiciones</span>
-                <button type="submit" class="boton_ingresar">Registrarse</button>
+            <form id="formReg" class="formulario" method="post" action="" style="left: 450px;">
+                <input type="text" class="campo_texto" id="usuarioRE" placeholder="Usuario">
+                <input type="email" class="campo_texto" id="email" placeholder="Email">
+                <input type="text" class="campo_texto" id="contraseñaRE" placeholder="Ingrese Contraseña">
+                <input type="checkbox" class="checkbox" id="terminos"><span>Acepto Terminos y Condiciones</span>
+                <button type="submit" class="boton_ingresar" id="registrarse" onclick='validarContraseña(document.getElementById("contraseñaRE").value)'>Registrarse </button>
             </form>
 
         </div> 
-        
         <script>
-            var x=document.getElementById("ing");
-            var y=document.getElementById("reg");
-            var z=document.getElementById("btn");
+            var formularioIngreso=document.getElementById("formIng");
+            var formularioRegistro=document.getElementById('formReg');
 
-            function registro(){
-                x.style.left="-400px";
-                y.style.left="50px";
-                z.style.left="130px";
-            }
+            formularioIngreso.addEventListener('submit',function(e){
 
-            function ingreso(){
-                x.style.left="50px";
-                y.style.left="450px";
-                z.style.left="0px";
-            }
+                    var contraseña=document.getElementById('contraseñaIN').value;
+                    var usuario=document.getElementById('usuarioIN').value;
+                    var resultadoVerificacion=usConVacio(usuario,contraseña);
 
+                    if(resultadoVerificacion==true){
+                        e.preventDefault();
+                    }
+                    else{
+                        mostrarSpinner();
+                        alert('Sesion Inciada');
+                    }
+                }
+            ); 
+
+            var switchIngresoRegistro=document.getElementById('switchIngresoRegistro');
+
+            var switchIngreso=document.getElementById('ingreso');
+                switchIngreso.addEventListener('click',function(e){
+                    formularioIngreso.style.left="50px";
+                    formularioRegistro.style.left="450px";
+                    switchIngresoRegistro.style.left="0px";
+                })
+
+            var switchRegistro=document.getElementById('registro');
+                switchRegistro.addEventListener('click',function(e){
+                    formularioIngreso.style.left="-400px";
+                    formularioRegistro.style.left="50px";
+                    switchIngresoRegistro.style.left="130px";
+                })
+            
         </script>
+
 </body>
 </html>
