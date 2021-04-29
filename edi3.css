@@ -24,7 +24,7 @@ body {
 .caja_formulario{
    /* width: 450px;*/
     width: clamp(20em,90%,28em); /*DISEÑO RESPONSIVO)*/
-    height: 35em;
+    height: 40em;
     position:relative;
     margin: 9% auto;
     background: azure;
@@ -43,27 +43,26 @@ body {
 }
 
 .botonIR{
-    padding: 1em 2.5em;
+    padding: 1em 2em;
     cursor: pointer;
     background: transparent;
     border:0;
-    outline: none;
     position: relative;
 }
 
 /*alt+35=#*/
-#btn{
+#switchIngresoRegistro{
     top: 0;
-    left: 0;
     position: absolute;
     width: 7em;
     height: 100%;
-    
+    background-color: lightblue;
+    border-radius: 3em;
+    /*
     background: var(--color_gradiente);
-  
     background-size: 400% 400%;
     animation: gradient 10s cubic-bezier(.86,0,.07,1) infinite;
-    border-radius: 3em;
+    */
 }
 
 .formulario{
@@ -83,6 +82,7 @@ body {
     border-bottom:0.1em solid black ;
     outline: none;
     background: transparent;
+    padding-bottom: 0.5em;
 }
 
 .boton_ingresar{
@@ -91,38 +91,48 @@ body {
     cursor: pointer;
     border-radius: 3em;
     margin-top: 10%;
+    padding-right: 16px;
+    margin-right: -20px;
+    margin-left: 20px;
     
     display: flex;
     justify-content:center;
     align-items:center;
+    background-color: lightblue;
     
     /*MODIFICAR SE COMPARTE ENTRE LOS BOTONES*/
     
+    /*
     box-shadow: 0 0 2em 0.2em lightblue;
     background: linear-gradient(-45deg, #ee7752, #84eef2, #30829f, #0b18e8);
     background-size: 400% 400%;
     animation: gradient 10s cubic-bezier(.86,0,.07,1) infinite;
+    */
 }
 
 input[type="checkbox"]{
-    margin: 0.7em 0em 1em 0em;
+    margin: 1em 0em; 
 }
 
 span{
-    margin: 0.9em;
+    margin-top: 1.35em;
+    margin-left: 0.3em;
     color:#777;
     font-size: 12px;
     position: absolute;
 }
 
-#ing{
+#formIng{
     left:50px;
 }
 
-#reg{
+#formReg{
     left:450px;
 }
 
+
+/*DISEÑO RESPONSIVO*/
+/* REMPLAZAR POR BOOSTRAP*/
  @keyframes gradient {
             0% {
                 background-position: 0% 50%;
@@ -135,7 +145,6 @@ span{
             }
         }
 
-/*DISEÑO RESPONSIVO*/
 @media screen and (max-width: 500px) {
 
   .caja_formulario {
@@ -143,19 +152,8 @@ span{
   }
 }
 
-
- /* make it responsive */ /* make the layout  a single column and add some margin to the wrapper */
-/*
-@media screen and (max-width: 400px) {
-
-  .caja_formulario {
-        width: 300px;
-        height: 480px;
-  }
-   .formulario{
-        width: 210px;
-    }
-} */
-
+.spi{
+    animation: 10s linear infinite spinner;
+}
 
 

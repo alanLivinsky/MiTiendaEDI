@@ -25,7 +25,7 @@
 
 </head>
 
-<body>
+<body onload="formIng.usuarioIN.focus()">
     <div class="container fondo">
         <div class="container caja_formulario">
             <div class="div_boton">
@@ -41,7 +41,7 @@
                 <button type="submit" class="boton_ingresar" id="ingresar">Ingresar</button>
                 
                 <button type="button" class="boton_ingresar" id="cargarIngresar" style="display: none;">
-                    <div class="spinner-border" id="spin"></div>
+                    <div class="spinner-border spi" id="spin"></div>
                 </button>
             </form>
 
@@ -59,7 +59,6 @@
             var formularioRegistro=document.getElementById('formReg');
 
             formularioIngreso.addEventListener('submit',function(e){
-
                     var contraseña=document.getElementById('contraseñaIN').value;
                     var usuario=document.getElementById('usuarioIN').value;
                     var resultadoVerificacion=usConVacio(usuario,contraseña);
@@ -89,7 +88,25 @@
                     formularioRegistro.style.left="50px";
                     switchIngresoRegistro.style.left="130px";
                 })
-            
+
+            var usuario=document.getElementById('usuarioIN');
+            var contraseña=document.getElementById('contraseñaIN');
+            var ingresar=document.getElementById('ingresar');
+
+                usuario.addEventListener("keyup",function(e){
+                    if (event.keyCode === 13) {
+                        contraseña.focus();
+                    }
+                })
+
+                contraseña.addEventListener("keyup",function(e){
+                    if (event.keyCode === 13) {
+                        ingresar.focus();
+                    }
+                })
+
+                
+                
         </script>
 
 </body>
